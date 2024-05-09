@@ -11,7 +11,7 @@
 // limitations under the License.
 
 module "dns_zone" {
-  source = "git::https://github.com/nexient-llc/tf-aws-module_primitive-dns_zone.git?ref=0.1.4"
+  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-dns_zone.git?ref=1.0.0"
 
   zones = var.zones
   tags  = var.tags

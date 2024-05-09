@@ -1,4 +1,4 @@
-module github.com/nexient-llc/tf-aws-module_primitive-dns_record
+module github.com/launchbynttdata/tf-aws-module_primitive-dns_record
 
 go 1.21
 
@@ -6,7 +6,7 @@ toolchain go1.21.6
 
 require (
 	github.com/gruntwork-io/terratest v0.46.11
-	github.com/nexient-llc/lcaf-component-terratest-common v1.0.3
+	github.com/launchbynttdata/lcaf-component-terratest v1.0.3
 	github.com/stretchr/testify v1.8.4
 )
 

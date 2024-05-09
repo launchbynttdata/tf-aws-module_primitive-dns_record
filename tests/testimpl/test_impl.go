@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
-	"github.com/nexient-llc/lcaf-component-terratest-common/lib/aws/dns"
-	"github.com/nexient-llc/lcaf-component-terratest-common/types"
+	"github.com/launchbynttdata/lcaf-component-terratest/lib/aws/dns"
+	"github.com/launchbynttdata/lcaf-component-terratest/types"
 	"github.com/stretchr/testify/assert"
 )
 
