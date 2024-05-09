@@ -23,6 +23,4 @@ module "dns_record" {
 
   zone_id = local.zone_id[0]
   records = var.records
-
-  depends_on = [module.dns_zone]
 }
