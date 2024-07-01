@@ -28,7 +28,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_dns_zone"></a> [dns\_zone](#module\_dns\_zone) | git::https://github.com/launchbynttdata/tf-aws-module_primitive-dns_zone.git | 1.0.0 |
+| <a name="module_dns_zone"></a> [dns\_zone](#module\_dns\_zone) | terraform.registry.launch.nttdata.com/module_primitive/dns_zone/aws | ~> 1.0 |
 | <a name="module_dns_record"></a> [dns\_record](#module\_dns\_record) | ../.. | n/a |
 
 ## Resources

@@ -11,7 +11,8 @@
 // limitations under the License.
 
 module "dns_zone" {
-  source = "git::https://github.com/launchbynttdata/tf-aws-module_primitive-dns_zone.git?ref=1.0.0"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/dns_zone/aws"
+  version = "~> 1.0"
 
   zones = var.zones
   tags  = var.tags
