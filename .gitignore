@@ -4,7 +4,7 @@ components/
 .semverbot.toml
 .tflint.hcl
 .golangci.yaml
-
+.envrc
 .idea
 !examples/*.tfvars
 
