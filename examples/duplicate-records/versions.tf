@@ -9,7 +9,19 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-output "record_fqdns" {
-  description = "FQDNs built using the zone domain and name."
-  value       = { for record in aws_route53_record.route53_record : record.name => record.fqdn... }
+
+terraform {
+  required_version = "~> 1.0"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+
+    random = {
+      source  = "hashicorp/random"
+      version = ">= 3.6.0"
+    }
+  }
 }

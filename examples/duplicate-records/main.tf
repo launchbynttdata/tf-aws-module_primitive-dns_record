@@ -9,7 +9,21 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-output "record_fqdns" {
-  description = "FQDNs built using the zone domain and name."
-  value       = { for record in aws_route53_record.route53_record : record.name => record.fqdn... }
+
+module "dns_zone" {
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/dns_zone/aws"
+  version = "~> 1.0"
+
+  zones = var.zones
+  tags  = var.tags
+}
+
+# This example demonstrates creating multiple DNS records in a single DNS zone.
+module "dns_record" {
+  source = "../.."
+
+  zone_id = local.zone_id[0]
+  records = var.records
+
+  depends_on = [module.dns_zone]
 }
