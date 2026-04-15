@@ -22,7 +22,7 @@ module "dns_zone" {
 module "dns_record" {
   source = "../.."
 
-  zone_id = local.zone_id[0]
+  zone_id = try(local.zone_id[0], "")
   records = var.records
 
   depends_on = [module.dns_zone]
