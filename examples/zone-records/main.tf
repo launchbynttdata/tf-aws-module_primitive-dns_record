@@ -22,7 +22,9 @@ module "dns_zone" {
 module "dns_record" {
   source = "../.."
 
-  zone_id = local.zone_id[0]
+  # try() so terraform validate / tflint succeed without test.tfvars
+  # (var.zones defaults would otherwise make this list empty).
+  zone_id = try(local.zone_id[0], "")
   records = var.records
 
   depends_on = [module.dns_zone]
