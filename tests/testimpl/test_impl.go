@@ -36,6 +36,14 @@ func TestDoesDNSZoneRecordExist(t *testing.T, ctx types.TestContext) {
 	})
 }
 
+func TestComposableReadonlyDoesDNSZoneExist(t *testing.T, ctx types.TestContext) {
+	TestDoesDNSZoneExist(t, ctx)
+}
+
+func TestComposableReadonlyDoesDNSZoneRecordExist(t *testing.T, ctx types.TestContext) {
+	TestDoesDNSZoneRecordExist(t, ctx)
+}
+
 func testDataHaveDNSRecords(t *testing.T, ctx types.TestContext) bool {
 	return len(ctx.TestConfig().(*ThisTFModuleConfig).Records) > 0
 }

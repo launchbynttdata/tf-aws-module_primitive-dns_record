@@ -38,5 +38,5 @@ func TestDNSZoneRecordsModule(t *testing.T) {
 		}).
 		Build()
 
-	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestDoesDNSZoneExist, testimpl.TestDoesDNSZoneRecordExist)
+	lib.RunNonDestructiveTest(t, *ctx, testimpl.TestComposableReadonlyDoesDNSZoneExist, testimpl.TestComposableReadonlyDoesDNSZoneRecordExist)
 }
