@@ -1,6 +1,7 @@
 package common
 
 import (
+	"context"
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -11,7 +12,7 @@ import (
 
 func TestDoesDNSZoneExist(t *testing.T, ctx types.TestContext) {
 	t.Run("TestIsZoneExist", func(t *testing.T) {
-		zoneIds := terraform.OutputMap(t, ctx.TerratestTerraformOptions(), "route53_zone_zone_ids")
+		zoneIds := terraform.OutputMapContext(t, context.Background(), ctx.TerratestTerraformOptions(), "route53_zone_zone_ids")
 		for zoneName := range zoneIds {
 			expectedZoneName := ctx.TestConfig().(*ThisTFModuleConfig).Zones[zoneName].Domain_name
 			zone := dns.GetHostedZoneById(t, zoneIds[zoneName])
@@ -23,7 +24,7 @@ func TestDoesDNSZoneExist(t *testing.T, ctx types.TestContext) {
 func TestDoesDNSZoneRecordExist(t *testing.T, ctx types.TestContext) {
 	t.Run("TestIsRecordExists", func(t *testing.T) {
 		if !testDataHaveDNSRecords(t, ctx) {
-			zoneIds := terraform.OutputMap(t, ctx.TerratestTerraformOptions(), "route53_zone_zone_ids")
+			zoneIds := terraform.OutputMapContext(t, context.Background(), ctx.TerratestTerraformOptions(), "route53_zone_zone_ids")
 			for zoneName := range zoneIds {
 				for _, rec := range ctx.TestConfig().(*ThisTFModuleConfig).Records {
 					fullQualifiedRecordName := rec.Name + "." + dns.NameNormalize(ctx.TestConfig().(*ThisTFModuleConfig).Zones[zoneName].Domain_name)
